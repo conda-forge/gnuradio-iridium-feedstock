@@ -1,0 +1,26 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Ryan Volz <ryan.volz@gmail.com>
+Date: Fri, 1 Oct 2021 18:03:56 -0400
+Subject: [PATCH] burst_downmix: Return something from work, even though it is
+ not called.
+
+This fixes compilation with MSVC.
+---
+ lib/burst_downmix_impl.cc | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/lib/burst_downmix_impl.cc b/lib/burst_downmix_impl.cc
+index d1ab9a0..619405d 100644
+--- a/lib/burst_downmix_impl.cc
++++ b/lib/burst_downmix_impl.cc
+@@ -830,6 +830,7 @@ namespace gr {
+         gr_vector_const_void_star &input_items,
+         gr_vector_void_star &output_items)
+     {
++      return 0;
+     }
+ 
+   } /* namespace iridium */
+-- 
+2.25.1
+
