@@ -28,6 +28,10 @@ requirements:
     - cmake
     - ninja
     - pkg-config
+    # cross-compilation requirements
+    - python                              # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - pybind11                            # [build_platform != target_platform]
 
   host:
     - boost-cpp  # [linux]
