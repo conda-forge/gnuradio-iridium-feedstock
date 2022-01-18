@@ -16,7 +16,7 @@ source:
     - 0003-cpp-Use-modern-c-lambdas-instrad-of-boost-bind.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # three-segment date-based release, with no guarantee of API/ABI stability
     - {{ pin_subpackage('gnuradio-iridium', max_pin='x.x.x') }}
