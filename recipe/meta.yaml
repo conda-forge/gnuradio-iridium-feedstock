@@ -1,6 +1,6 @@
 {% set name = "gnuradio-iridium" %}
 {% set version = "2021.09.26" %}
-{% set gr_compat = "3.9" %}
+{% set gr_compat = "3.8" %}
 {% set tag_version = version.replace('.', '-') + "_maint-" + gr_compat %}
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/muccc/gr-iridium/archive/{{ tag_version }}.tar.gz
-  sha256: c588e71e330d37744168eaf670599fe63be689c710a308e29ec24921fc4286b4
+  sha256: 0a1ac1a059ca3256452212ba2b51a49008c369d9f59066bdb07efe8612197435
   patches:
     - 0001-Replace-usleep-with-stdlib-call-for-portability.patch
     - 0002-Replace-gettimeofday-with-stdlib-calls-for-portabili.patch
