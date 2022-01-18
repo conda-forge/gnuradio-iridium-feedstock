@@ -20,6 +20,8 @@ gmp:
 - '6'
 gnuradio_core:
 - 3.9.5
+numpy:
+- '1.18'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
@@ -37,3 +39,5 @@ volk:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - numpy
