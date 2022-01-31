@@ -16,7 +16,7 @@ source:
     - 0003-cpp-Use-modern-c-lambdas-instrad-of-boost-bind.patch
 
 build:
-  number: 2
+  number: 3
   run_exports:
     # three-segment date-based release, with no guarantee of API/ABI stability
     - {{ pin_subpackage('gnuradio-iridium', max_pin='x.x.x') }}
@@ -37,7 +37,8 @@ requirements:
   host:
     - boost-cpp  # [linux]
     - gmp  # [linux]
-    - gnuradio-core
+    - gnuradio-core  # [not gnuradio_extra_pin]
+    - gnuradio-core {{ gnuradio_extra_pin }}.*  # [gnuradio_extra_pin]
     - pip  # [win]
     - pybind11
     - python
