@@ -67,8 +67,8 @@ test:
     - if not exist %PREFIX%\\Library\\lib\\{{ name }}.lib exit 1  # [win]
 
     # verify that (some) GRC blocks get installed
-    {% set blocks = ["iridium_burst_downmix", "iridium_iridium-qpsk-demod"] %}
-    {% set blocks = blocks + ["iridium_iridium_qpsk_demod_cpp"] %}
+    {% set blocks = ["iridium_burst_downmix", "iridium_frame_sorter"] %}
+    {% set blocks = blocks + ["iridium_iridium_qpsk_demod"] %}
 
     {% for block in blocks %}
     - test -f $PREFIX/share/gnuradio/grc/blocks/{{ block }}.block.yml  # [not win]
