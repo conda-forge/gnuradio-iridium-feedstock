@@ -1,5 +1,5 @@
 {% set name = "gnuradio-iridium" %}
-{% set version = "2021.09.26" %}
+{% set version = "2022.02.02" %}
 {% set gr_compat = "3.9" %}
 {% set tag_version = version.replace('.', '-') + "_maint-" + gr_compat %}
 
@@ -9,14 +9,10 @@ package:
 
 source:
   url: https://github.com/muccc/gr-iridium/archive/{{ tag_version }}.tar.gz
-  sha256: c588e71e330d37744168eaf670599fe63be689c710a308e29ec24921fc4286b4
-  patches:
-    - 0001-Replace-usleep-with-stdlib-call-for-portability.patch
-    - 0002-Replace-gettimeofday-with-stdlib-calls-for-portabili.patch
-    - 0003-cpp-Use-modern-c-lambdas-instrad-of-boost-bind.patch
+  sha256: 2d92fa879feb76bc556c5f27aede7fa3f93308a2c6172826d730ef8f5ac0b35f
 
 build:
-  number: 3
+  number: 0
   run_exports:
     # three-segment date-based release, with no guarantee of API/ABI stability
     - {{ pin_subpackage('gnuradio-iridium', max_pin='x.x.x') }}
