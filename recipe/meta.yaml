@@ -12,7 +12,7 @@ source:
   sha256: f654893197e14606f9a33b6d413ef5f5de52c072d9d60dedf9e1a4567b8800a8
   patches:
     - 0001-Drop-now-unused-unistd.h-include.patch
-    - 0002-Fix-building-on-Windows-by-normalizing-path-to-only-.patch
+    - 0002-Don-t-override-GR_PYTHON_DIR.patch
 
 build:
   number: 0
