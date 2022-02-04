@@ -10,6 +10,8 @@ package:
 source:
   url: https://github.com/muccc/gr-iridium/archive/{{ tag_version }}.tar.gz
   sha256: 2d92fa879feb76bc556c5f27aede7fa3f93308a2c6172826d730ef8f5ac0b35f
+  patches:
+    - 0001-Drop-now-unused-unistd.h-include.patch
 
 build:
   number: 0
