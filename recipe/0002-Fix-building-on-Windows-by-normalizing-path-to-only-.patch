@@ -1,0 +1,26 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Ryan Volz <ryan.volz@gmail.com>
+Date: Fri, 4 Feb 2022 16:40:55 -0500
+Subject: [PATCH] Fix building on Windows by normalizing path to only forward
+ slashes.
+
+---
+ swig/CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/swig/CMakeLists.txt b/swig/CMakeLists.txt
+index 1d9f58f..ba33af9 100644
+--- a/swig/CMakeLists.txt
++++ b/swig/CMakeLists.txt
+@@ -39,6 +39,8 @@ execute_process(
+     OUTPUT_STRIP_TRAILING_WHITESPACE
+     OUTPUT_VARIABLE GR_PYTHON_DIR
+ )
++# Make sure only forward slashes are used in path
++file(TO_CMAKE_PATH ${GR_PYTHON_DIR} GR_PYTHON_DIR)
+ 
+ ########################################################################
+ # Setup swig generation
+-- 
+2.34.1
+
