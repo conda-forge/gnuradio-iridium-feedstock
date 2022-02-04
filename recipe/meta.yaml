@@ -1,5 +1,5 @@
 {% set name = "gnuradio-iridium" %}
-{% set version = "2021.09.26" %}
+{% set version = "2022.02.02" %}
 {% set gr_compat = "3.9" %}
 {% set tag_version = version.replace('.', '-') + "_maint-" + gr_compat %}
 
@@ -9,14 +9,13 @@ package:
 
 source:
   url: https://github.com/muccc/gr-iridium/archive/{{ tag_version }}.tar.gz
-  sha256: c588e71e330d37744168eaf670599fe63be689c710a308e29ec24921fc4286b4
+  sha256: 2d92fa879feb76bc556c5f27aede7fa3f93308a2c6172826d730ef8f5ac0b35f
   patches:
-    - 0001-Replace-usleep-with-stdlib-call-for-portability.patch
-    - 0002-Replace-gettimeofday-with-stdlib-calls-for-portabili.patch
-    - 0003-cpp-Use-modern-c-lambdas-instrad-of-boost-bind.patch
+    - 0001-Drop-now-unused-unistd.h-include.patch
+    - 0002-Don-t-override-GR_PYTHON_DIR.patch
 
 build:
-  number: 3
+  number: 0
   run_exports:
     # three-segment date-based release, with no guarantee of API/ABI stability
     - {{ pin_subpackage('gnuradio-iridium', max_pin='x.x.x') }}
@@ -55,7 +54,7 @@ test:
   commands:
     # verify that commands run
     # --help exits with -1, which wraps to 255 on linux/osx
-    - iridium-extractor --help || ec=$?; if [ $ec -eq 255 ]; then exit 0; fi  # [not win]
+    - iridium-extractor --help || ec=$?; if [ $ec -eq 255 ]; then true; else return $ec; fi  # [not win]
     - iridium-extractor --help || if ERRORLEVEL -1 if not ERRORLEVEL 0 cmd /c "exit /b 0"  # [win]
 
     # verify that (some) headers get installed
@@ -68,8 +67,8 @@ test:
     - if not exist %PREFIX%\\Library\\lib\\{{ name }}.lib exit 1  # [win]
 
     # verify that (some) GRC blocks get installed
-    {% set blocks = ["iridium_burst_downmix", "iridium_iridium-qpsk-demod"] %}
-    {% set blocks = blocks + ["iridium_iridium_qpsk_demod_cpp"] %}
+    {% set blocks = ["iridium_burst_downmix", "iridium_frame_sorter"] %}
+    {% set blocks = blocks + ["iridium_iridium_qpsk_demod"] %}
 
     {% for block in blocks %}
     - test -f $PREFIX/share/gnuradio/grc/blocks/{{ block }}.block.yml  # [not win]

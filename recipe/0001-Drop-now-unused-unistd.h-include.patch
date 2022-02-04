@@ -1,0 +1,24 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Ryan Volz <ryan.volz@gmail.com>
+Date: Fri, 4 Feb 2022 16:29:43 -0500
+Subject: [PATCH] Drop now-unused <unistd.h> include.
+
+---
+ lib/tagged_burst_to_pdu_impl.cc | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/lib/tagged_burst_to_pdu_impl.cc b/lib/tagged_burst_to_pdu_impl.cc
+index bda834e..279289b 100644
+--- a/lib/tagged_burst_to_pdu_impl.cc
++++ b/lib/tagged_burst_to_pdu_impl.cc
+@@ -25,7 +25,6 @@
+ #include <gnuradio/io_signature.h>
+ #include "tagged_burst_to_pdu_impl.h"
+ 
+-#include <unistd.h>
+ #include <chrono>
+ #include <thread>
+ #include <inttypes.h>
+-- 
+2.34.1
+
