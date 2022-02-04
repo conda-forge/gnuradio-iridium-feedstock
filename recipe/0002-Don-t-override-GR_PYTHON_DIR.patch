@@ -1,0 +1,51 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Ryan Volz <ryan.volz@gmail.com>
+Date: Fri, 4 Feb 2022 16:40:55 -0500
+Subject: [PATCH] Don't override GR_PYTHON_DIR.
+
+---
+ python/CMakeLists.txt | 10 ----------
+ swig/CMakeLists.txt   |  6 ------
+ 2 files changed, 16 deletions(-)
+
+diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
+index 233e591..4aa6c5e 100644
+--- a/python/CMakeLists.txt
++++ b/python/CMakeLists.txt
+@@ -26,16 +26,6 @@ if(NOT PYTHONINTERP_FOUND)
+     return()
+ endif()
+ 
+-message(STATUS "CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
+-message(STATUS "GR_PYTHON_DIR: ${GR_PYTHON_DIR}")
+-
+-execute_process(
+-    COMMAND ${PYTHON_EXECUTABLE} "${CMAKE_CURRENT_SOURCE_DIR}/get_python_lib.py" "${CMAKE_INSTALL_PREFIX}"
+-    OUTPUT_STRIP_TRAILING_WHITESPACE
+-    OUTPUT_VARIABLE GR_PYTHON_DIR
+-)
+-message(STATUS "GR_PYTHON_DIR: ${GR_PYTHON_DIR}")
+-
+ ########################################################################
+ # Install python sources
+ ########################################################################
+diff --git a/swig/CMakeLists.txt b/swig/CMakeLists.txt
+index 1d9f58f..e7c0621 100644
+--- a/swig/CMakeLists.txt
++++ b/swig/CMakeLists.txt
+@@ -34,12 +34,6 @@ find_package(PythonLibs REQUIRED)
+ include(GrSwig)
+ include(GrPython)
+ 
+-execute_process(
+-    COMMAND ${PYTHON_EXECUTABLE} "${CMAKE_CURRENT_SOURCE_DIR}/../python/get_python_lib.py" "${CMAKE_INSTALL_PREFIX}"
+-    OUTPUT_STRIP_TRAILING_WHITESPACE
+-    OUTPUT_VARIABLE GR_PYTHON_DIR
+-)
+-
+ ########################################################################
+ # Setup swig generation
+ ########################################################################
+-- 
+2.34.1
+
