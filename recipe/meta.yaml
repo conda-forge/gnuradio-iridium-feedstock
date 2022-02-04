@@ -54,7 +54,7 @@ test:
   commands:
     # verify that commands run
     # --help exits with -1, which wraps to 255 on linux/osx
-    - iridium-extractor --help || ec=$?; if [ $ec -eq 255 ]; then exit 0; fi  # [not win]
+    - iridium-extractor --help || ec=$?; if [ $ec -eq 255 ]; then true; else return $ec; fi  # [not win]
     - iridium-extractor --help || if ERRORLEVEL -1 if not ERRORLEVEL 0 cmd /c "exit /b 0"  # [win]
 
     # verify that (some) headers get installed
