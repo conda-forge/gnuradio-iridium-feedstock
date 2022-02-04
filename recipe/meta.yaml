@@ -12,6 +12,7 @@ source:
   sha256: 2d92fa879feb76bc556c5f27aede7fa3f93308a2c6172826d730ef8f5ac0b35f
   patches:
     - 0001-Drop-now-unused-unistd.h-include.patch
+    - 0002-Don-t-override-GR_PYTHON_DIR.patch
 
 build:
   number: 0
