@@ -1,21 +1,19 @@
 {% set name = "gnuradio-iridium" %}
-{% set version = "2022.02.02" %}
-{% set gr_compat = "3.9" %}
-{% set tag_version = version.replace('.', '-') + "_maint-" + gr_compat %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}.gr{{ gr_compat }}
+  version: 1!{{ version }}
 
 source:
-  url: https://github.com/muccc/gr-iridium/archive/{{ tag_version }}.tar.gz
-  sha256: 2d92fa879feb76bc556c5f27aede7fa3f93308a2c6172826d730ef8f5ac0b35f
+  url: https://github.com/muccc/gr-iridium/archive/v{{ version }}.tar.gz
+  sha256: 933f5fd18705ddd452547304b404cc36abe4acc1ad7d5c016ad16c0dd2254d86
   patches:
     - 0001-Drop-now-unused-unistd.h-include.patch
     - 0002-Don-t-override-GR_PYTHON_DIR.patch
 
 build:
-  number: 4
+  number: 0
   run_exports:
     # three-segment date-based release, with no guarantee of API/ABI stability
     - {{ pin_subpackage('gnuradio-iridium', max_pin='x.x.x') }}
