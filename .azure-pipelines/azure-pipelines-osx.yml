@@ -8,10 +8,6 @@ jobs:
     vmImage: macOS-11
   strategy:
     matrix:
-      osx_64_gnuradio_extra_pin3.9.8numpy1.20python3.7.____cpython:
-        CONFIG: osx_64_gnuradio_extra_pin3.9.8numpy1.20python3.7.____cpython
-        UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_gnuradio_extra_pin3.9.8numpy_h902842dd0b
       osx_64_gnuradio_extra_pin3.9.8numpy1.20python3.8.____cpython:
         CONFIG: osx_64_gnuradio_extra_pin3.9.8numpy1.20python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -24,10 +20,10 @@ jobs:
         CONFIG: osx_64_gnuradio_extra_pin3.9.8numpy1.21python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         SHORT_CONFIG: osx_64_gnuradio_extra_pin3.9.8numpy_hd31d50f21b
-      osx_64_gnuradio_extra_pinnumpy1.20python3.7.____cpython:
-        CONFIG: osx_64_gnuradio_extra_pinnumpy1.20python3.7.____cpython
+      osx_64_gnuradio_extra_pin3.9.8numpy1.23python3.11.____cpython:
+        CONFIG: osx_64_gnuradio_extra_pin3.9.8numpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_gnuradio_extra_pinnumpy1.20p_hc83677ed8c
+        SHORT_CONFIG: osx_64_gnuradio_extra_pin3.9.8numpy_h2ddb33c224
       osx_64_gnuradio_extra_pinnumpy1.20python3.8.____cpython:
         CONFIG: osx_64_gnuradio_extra_pinnumpy1.20python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -40,6 +36,10 @@ jobs:
         CONFIG: osx_64_gnuradio_extra_pinnumpy1.21python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         SHORT_CONFIG: osx_64_gnuradio_extra_pinnumpy1.21p_h40161402eb
+      osx_64_gnuradio_extra_pinnumpy1.23python3.11.____cpython:
+        CONFIG: osx_64_gnuradio_extra_pinnumpy1.23python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        SHORT_CONFIG: osx_64_gnuradio_extra_pinnumpy1.23p_h3b3216637d
       osx_arm64_gnuradio_extra_pin3.9.8numpy1.20python3.8.____cpython:
         CONFIG: osx_arm64_gnuradio_extra_pin3.9.8numpy1.20python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -52,6 +52,10 @@ jobs:
         CONFIG: osx_arm64_gnuradio_extra_pin3.9.8numpy1.21python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         SHORT_CONFIG: osx_arm64_gnuradio_extra_pin3.9.8nu_h8bff902584
+      osx_arm64_gnuradio_extra_pin3.9.8numpy1.23python3.11.____cpython:
+        CONFIG: osx_arm64_gnuradio_extra_pin3.9.8numpy1.23python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        SHORT_CONFIG: osx_arm64_gnuradio_extra_pin3.9.8nu_h423937c2dc
       osx_arm64_gnuradio_extra_pinnumpy1.20python3.8.____cpython:
         CONFIG: osx_arm64_gnuradio_extra_pinnumpy1.20python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -64,6 +68,10 @@ jobs:
         CONFIG: osx_arm64_gnuradio_extra_pinnumpy1.21python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         SHORT_CONFIG: osx_arm64_gnuradio_extra_pinnumpy1._h84a6aaa9a3
+      osx_arm64_gnuradio_extra_pinnumpy1.23python3.11.____cpython:
+        CONFIG: osx_arm64_gnuradio_extra_pinnumpy1.23python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        SHORT_CONFIG: osx_arm64_gnuradio_extra_pinnumpy1._h0964b0f424
   timeoutInMinutes: 360
 
   steps:
