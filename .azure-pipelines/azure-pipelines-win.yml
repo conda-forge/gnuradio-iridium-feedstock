@@ -5,37 +5,37 @@
 jobs:
 - job: win
   pool:
-    vmImage: windows-2019
+    vmImage: windows-2022
   strategy:
     matrix:
-      win_64_gnuradio_extra_pin3.9.8numpy1.20python3.8.____cpython:
-        CONFIG: win_64_gnuradio_extra_pin3.9.8numpy1.20python3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: win_64_gnuradio_extra_pin3.9.8numpy_h4d3e9ccc7c
-      win_64_gnuradio_extra_pin3.9.8numpy1.20python3.9.____cpython:
-        CONFIG: win_64_gnuradio_extra_pin3.9.8numpy1.20python3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: win_64_gnuradio_extra_pin3.9.8numpy_hb4896257a1
       win_64_gnuradio_extra_pin3.9.8numpy1.21python3.10.____cpython:
         CONFIG: win_64_gnuradio_extra_pin3.9.8numpy1.21python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         SHORT_CONFIG: win_64_gnuradio_extra_pin3.9.8numpy_ha8c124a778
+      win_64_gnuradio_extra_pin3.9.8numpy1.21python3.8.____cpython:
+        CONFIG: win_64_gnuradio_extra_pin3.9.8numpy1.21python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        SHORT_CONFIG: win_64_gnuradio_extra_pin3.9.8numpy_h084e284d9a
+      win_64_gnuradio_extra_pin3.9.8numpy1.21python3.9.____cpython:
+        CONFIG: win_64_gnuradio_extra_pin3.9.8numpy1.21python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        SHORT_CONFIG: win_64_gnuradio_extra_pin3.9.8numpy_h8d8848ca23
       win_64_gnuradio_extra_pin3.9.8numpy1.23python3.11.____cpython:
         CONFIG: win_64_gnuradio_extra_pin3.9.8numpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         SHORT_CONFIG: win_64_gnuradio_extra_pin3.9.8numpy_h75fbe55750
-      win_64_gnuradio_extra_pinnumpy1.20python3.8.____cpython:
-        CONFIG: win_64_gnuradio_extra_pinnumpy1.20python3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: win_64_gnuradio_extra_pinnumpy1.20p_h866a645c44
-      win_64_gnuradio_extra_pinnumpy1.20python3.9.____cpython:
-        CONFIG: win_64_gnuradio_extra_pinnumpy1.20python3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: win_64_gnuradio_extra_pinnumpy1.20p_h7fd92f8ea6
       win_64_gnuradio_extra_pinnumpy1.21python3.10.____cpython:
         CONFIG: win_64_gnuradio_extra_pinnumpy1.21python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         SHORT_CONFIG: win_64_gnuradio_extra_pinnumpy1.21p_h6f454585b3
+      win_64_gnuradio_extra_pinnumpy1.21python3.8.____cpython:
+        CONFIG: win_64_gnuradio_extra_pinnumpy1.21python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        SHORT_CONFIG: win_64_gnuradio_extra_pinnumpy1.21p_h43a062961e
+      win_64_gnuradio_extra_pinnumpy1.21python3.9.____cpython:
+        CONFIG: win_64_gnuradio_extra_pinnumpy1.21python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        SHORT_CONFIG: win_64_gnuradio_extra_pinnumpy1.21p_hd9fe0447ab
       win_64_gnuradio_extra_pinnumpy1.23python3.11.____cpython:
         CONFIG: win_64_gnuradio_extra_pinnumpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -65,7 +65,7 @@ jobs:
 
     - script: |
         call activate base
-        mamba.exe install "python=3.9" conda-build conda pip boa conda-forge-ci-setup=3 "py-lief<0.12" -c conda-forge --strict-channel-priority --yes
+        mamba.exe install "python=3.10" conda-build conda pip boa conda-forge-ci-setup=3 -c conda-forge --strict-channel-priority --yes
       displayName: Install conda-build
 
     - script: set PYTHONUNBUFFERED=1
