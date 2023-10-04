@@ -1,7 +1,5 @@
 BUILD:
 - aarch64-conda_cos7-linux-gnu
-boost_cpp:
-- 1.78.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -26,11 +24,11 @@ gnuradio_core:
 - 3.10.7
 gnuradio_extra_pin:
 - ''
+libboost_devel:
+- '1.82'
 numpy:
 - '1.23'
 pin_run_as_build:
-  boost-cpp:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
