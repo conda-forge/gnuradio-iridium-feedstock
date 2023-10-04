@@ -15,7 +15,7 @@ source:
     - 0002-Don-t-override-GR_PYTHON_DIR.patch
 
 build:
-  number: 3
+  number: 4
   run_exports:
     # three-segment date-based release, with no guarantee of API/ABI stability
     - {{ pin_subpackage('gnuradio-iridium', max_pin='x.x.x') }}
@@ -29,7 +29,7 @@ requirements:
     - pkg-config
 
   host:
-    - boost-cpp  # [linux]
+    - libboost-devel
     - gmp  # [linux]
     - gnuradio-core
     - pip  # [win]
@@ -39,7 +39,6 @@ requirements:
     - volk
 
   run:
-    - boost-cpp  # [linux]
     - numpy
     - python
     - scipy
