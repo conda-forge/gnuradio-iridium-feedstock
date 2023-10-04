@@ -32,10 +32,10 @@ requirements:
     - pybind11                            # [build_platform != target_platform]
 
   host:
-    - boost-cpp  # [linux]
     - gmp  # [linux]
     - gnuradio-core  # [not gnuradio_extra_pin]
     - gnuradio-core {{ gnuradio_extra_pin }}.*  # [gnuradio_extra_pin]
+    - libboost-devel
     - pip  # [win]
     - pybind11
     - python
@@ -43,7 +43,6 @@ requirements:
     - volk
 
   run:
-    - boost-cpp  # [linux]
     - numpy
     - python
     - scipy
