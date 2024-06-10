@@ -13,7 +13,7 @@ source:
     - 0002-Don-t-override-GR_PYTHON_DIR.patch
 
 build:
-  number: 11
+  number: 12
   run_exports:
     # three-segment date-based release, with no guarantee of API/ABI stability
     - {{ pin_subpackage('gnuradio-iridium', max_pin='x.x.x') }}
